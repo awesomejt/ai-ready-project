@@ -23,29 +23,30 @@
 
 [Adjust or change to meet specific project requirements]
 
-**Root files:**
- * README.md - Main, human-readable instruction for using the project, project purpose, and references to other docs
- * CONTRIBUTING.md - How to contribute to this project (for humans)
- * AGENTS.md - AI README file (this document), all AI assistants start here first
- * TODO.md - TODO list of tasks remaining and accomplished, organized by implementation phase and priority
+```
+/              # Root folder containing most important files
+ README.md         # Main, human-readable instruction for using the project, project purpose, and references to other docs
+ CONTRIBUTING.md   # How to contribute to this project (for humans)
+ AGENTS.md         # AI README file (this document), all AI assistants start here first
+ TODO.md           # TODO list of tasks remaining and accomplished, organized by implementation phase and priority
 
-**Project Documents:**:
- * ./docs/Requirements.md - Project requirements
- * ./docs/Implementation.md - High-level order in which the project will be developed/implemented
- * ./docs/Tech-Stack.md - Technical stack and tools, including versions
- * ./docs/diagrams/* - Project diagram images
+ /docs         # Project documentation
+  Requirements.md   # Project requirements
+  Implementation.md # High-level order in which the project will be developed/implemented
+  Tech-Stack.md     # Technical stack and tools, including versions
+  
+  /diagrams/*  # Project diagram images
 
-**Agent-specific:**
- * ./agents/Memory.md - Summary of chat sessions, AI memory to survive chat compaction and token window limitations
- * ./agents/Decisions.md - Summary of key decisions and milestones
- * ./agents/chats/*.md - Folder for creating a chat log per item or session in markdown format
+ /agents        # AI Agents documentation
+  Memory.md         # Summary of chat sessions, AI memory to survive chat compaction and token window limitations
+  Decisions.md      # Summary of key decisions and milestones
+  /chats/*.md       # Folder for creating a chat log per item or session in markdown format
 
-**Project Code and Build:**
- * ./src/* - main source directory for the project
- * ./build/* - build folder for projects that need to create build artifacts, excluded by Git
+ /src/*         # main source directory for the project
+ /build/*       # build folder for projects that need to create build artifacts, excluded by Git
 
-**Temporary:**
- * ./working/* - a temporary folder, excluded from Git, for temp/intermediate files like utility scripts or wip files
+ /working/*     # a temporary folder, excluded from Git, for temp/intermediate files like utility scripts or wip files
+```
 
 ## Workflow & Guardrails
 
