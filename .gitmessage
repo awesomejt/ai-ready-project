@@ -1,0 +1,17 @@
+# AI Assisted Commit Message Template
+#  Copy this file to the working folder within the project
+#  to compose a commit message for each set of changes
+#  Setup as repo commit template: `git config commit.template .gitmessage`
+
+# Short description of commit
+<type>(scope): <short description>
+
+# Multi-lined detailed description of changes
+<detailed description>
+
+# Attribution for transparancy
+AI-assisted: [yes/no]
+AI-model: [which AI(s) used, e.g., Grok / Claude] # only if AI-assisted is yes
+AI-location: [local/cloud] # only if AI-assisted is yes
+
+# References: #issue or PR number
