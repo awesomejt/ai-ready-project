@@ -24,28 +24,28 @@
 [Adjust or change to meet specific project requirements]
 
 **Root files:**
-README.md - Main, human-readable instruction for using the project, project purpose, and references to other docs
-CONTRIBUTING.md - How to contribute to this project (for humans)
-AGENTS.md - AI README file (this document), all AI assistants start here first
-TODO.md - TODO list of tasks remaining and accomplished, organized by implementation phase and priority
+ * README.md - Main, human-readable instruction for using the project, project purpose, and references to other docs
+ * CONTRIBUTING.md - How to contribute to this project (for humans)
+ * AGENTS.md - AI README file (this document), all AI assistants start here first
+ * TODO.md - TODO list of tasks remaining and accomplished, organized by implementation phase and priority
 
 **Project Documents:**:
-./docs/Requirements.md - Project requirements
-./docs/Implementation.md - High-level order in which the project will be developed/implemented
-./docs/Tech-Stack.md - Technical stack and tools, including versions
-./docs/diagrams/* - Project diagram images
+ * ./docs/Requirements.md - Project requirements
+ * ./docs/Implementation.md - High-level order in which the project will be developed/implemented
+ * ./docs/Tech-Stack.md - Technical stack and tools, including versions
+ * ./docs/diagrams/* - Project diagram images
 
 **Agent-specific:**
-./agents/Memory.md - Summary of chat sessions, AI memory to survive chat compaction and token window limitations
-./agents/Decisions.md - Summary of key decisions and milestones
-./agents/chats/*.md - Folder for creating a chat log per item or session in markdown format
+ * ./agents/Memory.md - Summary of chat sessions, AI memory to survive chat compaction and token window limitations
+ * ./agents/Decisions.md - Summary of key decisions and milestones
+ * ./agents/chats/*.md - Folder for creating a chat log per item or session in markdown format
 
 **Project Code and Build:**
-./src/* - main source directory for the project
-./build/* - build folder for projects that need to create build artifacts, excluded by Git
+ * ./src/* - main source directory for the project
+ * ./build/* - build folder for projects that need to create build artifacts, excluded by Git
 
 **Temporary:**
-./working/* - a temporary folder, excluded from Git, for temp/intermediate files like utility scripts or wip files
+ * ./working/* - a temporary folder, excluded from Git, for temp/intermediate files like utility scripts or wip files
 
 ## Workflow & Guardrails
 
@@ -76,7 +76,7 @@ For each iteration:
  - Ensure all tests pass
  - Update all documentation related to the task
  - Update chat log with both the user prompt and response
- - Provide a summary of important decisions in `ai-context/Decisions.md`
+ - Provide a summary of important decisions in `agents/Decisions.md`
 
 ### Chat Log
 
@@ -129,11 +129,6 @@ Chat Log entry:
 - Read `docs/Tech-Stack.md` for the approved technical stack - langauge, tools, frameworks, libraries
 - Read `docs/Implementation.md` for implementation plan and phases
 
-## Memory & Logging Rules
-
-- Read `ai-context/MEMORY.md` and `ai-context/DECISION-LOG.md` at the start of every session.
-- After significant work, summarize changes into MEMORY.md and log decisions.
-- Store chat/session logs in `ai-context/chat-logs/`.
 
 
 
