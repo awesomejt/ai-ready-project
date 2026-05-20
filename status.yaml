@@ -1,0 +1,17 @@
+# status.yaml
+# Controls interactive and automated project workflow. Tracked by Git so state
+# changes propagate to all clones and agents.
+#
+# status values:
+#   active  - work may proceed
+#   paused  - temporary hold; automated agents should wait
+#   blocked - blocked on a decision, resource, credential, or validation
+#   working - a human or agent is actively editing; other agents should skip
+#   error   - repo or automation state is unsafe; human recovery needed
+#   stopped - loop permanently halted or project complete
+
+status: active
+phase: ~
+reason: ~
+worker: ~
+updated: ~

@@ -1,135 +1,110 @@
 # Instructions for AI Coding Assistants
 
-## Project Overview & Requirements
+Start here before doing any work in this repository.
 
-[Brief 1-2 paragraph summary. Link to docs/Requirements.md for full details.]
+## Project Purpose
 
-## Technical Stack
+This repository is a general AI-ready project template. It is meant to work for interactive AI-assisted work first, while still being structured enough for light agentic workflows.
 
-[Provide technical stack for project]
+For project-specific requirements, read `docs/Requirements.md`.
 
-- Language: ...
-- Framework: ... (exact versions where critical)
-- Key tools/commands: `npm run dev`, `pnpm build`, etc.
-- Setup: exact commands to get the project running.
+## Required First Reads
 
-## Developer Preferences & Coding Style
+Before planning or editing, read:
 
-- Naming conventions, formatting rules, preferred patterns.
-- Examples of good/bad code snippets.
-- Linter/formatter rules (e.g., “Always run `prettier --write` before committing”).
+- `README.md`
+- `MEMORY.md`
+- `TODO.md`
+- `status.yaml`
+- `docs/Requirements.md`
+- `docs/Tech-Stack.md`
+- Any files directly related to the requested task
+
+If the task touches architecture, sequencing, or delivery, also read `docs/Architecture.md` and `docs/Implementation.md`.
+
+## Root Files
+
+The root files are the durable handoff contract:
+
+- `AGENTS.md` - AI assistant instructions.
+- `README.md` - human-facing project overview.
+- `TODO.md` - task tracking, priorities, blockers, and completed work.
+- `MEMORY.md` - persistent decisions, milestones, context, and run notes.
+- `status.yaml` - project state for humans and automation.
+- `.gitmessage` - Conventional Commit template with AI attribution fields.
+
+## Working Rules
+
+- Check `git status` before editing.
+- Pull latest changes before starting when network and permissions allow.
+- Do not overwrite user changes.
+- Keep edits focused on the current task.
+- Record meaningful decisions, blockers, and milestones in `MEMORY.md`.
+- Keep `TODO.md` current when tasks are added, started, blocked, or completed.
+- Update docs when behavior, setup, requirements, or workflows change.
+- Add tests or validation steps appropriate to the project and risk.
+- Do not commit secrets or credentials.
+
+## Status Workflow
+
+Use `status.yaml` as the shared state file:
+
+- `active` - work may proceed.
+- `paused` - do not perform automated work.
+- `blocked` - waiting on a human decision, credential, source file, or validation.
+- `working` - a human or agent is actively changing the repo; other agents should skip.
+- `error` - repo or automation state is unsafe; stop and request recovery.
+- `stopped` - project is complete or intentionally shut down.
+
+Automated agents should set `working` only while actively editing, and return to `active`, `blocked`, `error`, or `stopped` before ending a run.
 
 ## Project Structure
 
-[Adjust or change to meet specific project requirements]
+```text
+/                         # Root folder with the durable handoff files
+  README.md               # Human-facing overview and setup
+  AGENTS.md               # AI assistant instructions
+  TODO.md                 # Prioritized tasks and blockers
+  MEMORY.md               # Persistent project memory
+  status.yaml             # Agent/human workflow state
+  .gitmessage             # Commit template with AI attribution
 
-```
-/              # Root folder containing most important files
- README.md         # Main, human-readable instruction for using the project, project purpose, and references to other docs
- CONTRIBUTING.md   # How to contribute to this project (for humans)
- AGENTS.md         # AI README file (this document), all AI assistants start here first
- TODO.md           # TODO list of tasks remaining and accomplished, organized by implementation phase and priority
+  docs/                   # Requirements, architecture, stack, implementation notes
+    Requirements.md
+    Architecture.md
+    Tech-Stack.md
+    Implementation.md
+    diagrams/
 
- /docs         # Project documentation
-  Requirements.md   # Project requirements
-  Implementation.md # High-level order in which the project will be developed/implemented
-  Tech-Stack.md     # Technical stack and tools, including versions
-  
-  /diagrams/*  # Project diagram images
+  agents/                 # Optional supplemental AI context
+    Chat-Template.md      # Template for local or external chat transcripts
+    Decisions.md          # Optional decision log when more detail is useful
+    Research.md           # Optional research notes and references
+    chats/                # Local transcript workspace; transcript files ignored
 
- /agents        # AI Agents documentation
-  Memory.md         # Summary of chat sessions, AI memory to survive chat compaction and token window limitations
-  Decisions.md      # Summary of key decisions and milestones
-  /chats/*.md       # Folder for creating a chat log per item or session in markdown format
-
- /src/*         # main source directory for the project
- /build/*       # build folder for projects that need to create build artifacts, excluded by Git
-
- /working/*     # a temporary folder, excluded from Git, for temp/intermediate files like utility scripts or wip files
-```
-
-## Workflow & Guardrails
-
-### One-Time Setup
-
-If the project is freshly cloned, set `.gitmessage` as the commit template
-
-```bash
-git config commit.template .gitmessage
+  src/                    # Project source, when applicable
+  build/                  # Build artifacts; ignored by Git
+  working/                # Temporary scratch files; ignored by Git
 ```
 
-### Working Folders
+## Chat Logs And External Agent Logs
 
-Create/use the following directories within the project (excluded by Git):
- - ./working : A working folder for temporary files - like a commit message file, temporary tools, assiting code unrelated to project
- - ./build : a build directory for build artifacts (remove if project doesn't use it)
+Chat transcript files are useful for context but should not be committed by default. Keep temporary transcripts under `agents/chats/` if needed; Git ignores Markdown files in that folder while keeping the folder placeholder.
 
-### Workflow
+Agent workflow managers should copy or mirror full transcripts and runtime logs to their own storage. Hermes-compatible defaults are:
 
-For each iteration:
- - Plan (with possible research if gaps exist)
- - Prompt developer for critical decisions
- - For non-critical path decisions needed, put into dedicated section in `TODO.md` file
- - Update `TODO.md` for identified tasks to be completed now or later.
- - Evaluate `TODO.md` for priority of execution of tasks
- - Implement identified top priority task
- - Write unit and/or integration tests with industry standard code/case coverage
- - Ensure all tests pass
- - Update all documentation related to the task
- - Update chat log with both the user prompt and response
- - Provide a summary of important decisions in `agents/Decisions.md`
+- Runtime logs: `/var/log/hermes`
+- Mirrored logs: `/mnt/hermes/logs`
+- Project output and transcripts: `/mnt/hermes/output/<project-name>/`
 
-### Chat Log
+For n8n, OpenClaw, or another orchestrator, use equivalent configured storage.
 
-Store all conversations into the AI chat log folder located at `./agents/chats`.
+## Commit Guidance
 
-**File name template:**
-`YYYY-MM-DD_HHMM_topic.md`
+Use Conventional Commits:
 
-Example: 2026-04-27_1530_bootstrap-cli.md
+```text
+type(scope): short description
+```
 
-Chat Log entry:
- - Topic
- - Date and Time
- - Prompt (if any)
- - Output / Content
- - References
-
-### Git Workflow and Instructions
-- Use Conventional Commits.
-- Always pull latest before starting work.
-- Do not commit secrets or credentials.
-- **AI attribution**: Every commit involving AI assistance.
-- Use AI Git Commit template: `.gitmessage`
-
-### Documentation Workflow
-
-- Chat transcript:
-    - Save full conversation logs in [AI Chat log](agents/chats/)
-    - One Markdown file per session or iteration
-    - Start from [AI Chat Template](agents/Chat-Template.md)
-    - Include user prompts and complete assistant responses
-- Session summary:
-    - Update [AI Memory](agents/Memory.md) with:
-        - major decisions
-        - rationale
-        - milestones reached
-        - unresolved questions and risks
-    - Update [AI Decisions](agents/Decisions.md) with:
-        - major and minor decisions with date/time
-- Task tracking:
-    - Update [TODO.md](TODO.md) with actionable tasks and status changes, organized by implementation phase and priority
-- Requirements alignment:
-    - Read and follow [docs/Requirements.md](docs/Requirements.md) before implementing
-    - Update requirements only when scope or behavior changes are approved
-
-## Project Structure Reference
-
-- Read `docs/Requirements.md` for Project requirements
-- Read `docs/Architecture.md` for project structure and design
-- Read `docs/Tech-Stack.md` for the approved technical stack - langauge, tools, frameworks, libraries
-- Read `docs/Implementation.md` for implementation plan and phases
-
-
-
-
+Include AI attribution for AI-assisted commits using `.gitmessage`.

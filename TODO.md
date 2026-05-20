@@ -1,17 +1,52 @@
-# Project TODOs
+# Project TODO
 
-## Purpose
+Prioritized project task list. Keep this file current during interactive and agentic work.
 
-Prioritized list of tasked grouped by implementation phase. Requires Review section is reserved for human review or decisions. Ignored section is to track tasks previously identified but decided to ignore or skip.
+## Needs Attention
+
+Items that require a human decision, credential, source file, or manual validation before work can continue.
+
+- [ ] Replace template placeholders with project-specific details.
 
 ## Research
 
+- [ ] Read `README.md`, `MEMORY.md`, `TODO.md`, `status.yaml`, and `docs/Requirements.md`.
+- [ ] Identify missing requirements, constraints, and success criteria.
+- [ ] Research version-sensitive or external facts using reliable sources.
+
 ## Planning
+
+- [ ] Fill in `docs/Requirements.md`.
+- [ ] Fill in `docs/Tech-Stack.md`.
+- [ ] Fill in or intentionally skip `docs/Architecture.md`.
+- [ ] Update `docs/Implementation.md` with project phases.
+- [ ] Convert open questions into actionable tasks or blockers.
 
 ## Implementation
 
+- [ ] Implement the highest-priority unblocked task.
+- [ ] Add or update tests appropriate to the change.
+- [ ] Update project documentation for changed behavior or setup.
+
+## Validation
+
+- [ ] Run the project test suite.
+- [ ] Run lint, type checks, build checks, or equivalent validation.
+- [ ] Record any manual validation findings in `MEMORY.md`.
+
 ## Deployment
 
-## Requires Review
+- [ ] Document deployment targets and release steps.
+- [ ] Validate deployment or publishing workflow.
 
-## Ignored
+## Blocked
+
+Move blocked tasks here with the reason and exact next action needed.
+
+- [ ]
+
+## Done
+
+Move completed tasks here with a brief result note.
+
+- [ ]
