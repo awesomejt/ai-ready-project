@@ -1,6 +1,6 @@
 # Project TODO
 
-Prioritized project task list. Keep this file current during interactive and agentic work.
+Prioritized project task list. When Agent Workbench is configured, use `awb task next` / `awb task list` instead of reading this file directly. This file serves as the fallback when AWB is not available and as the initial task list before tasks are imported into AWB.
 
 ## Needs Attention
 
