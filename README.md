@@ -16,7 +16,7 @@ AI assistants and humans should start with the root files:
 
 - `docs/` - requirements, architecture, tech stack, implementation notes, and diagrams.
 - `agents/` - optional supplemental agent references, decision logs, research notes, and chat templates.
-- `agents/chats/` - local chat transcript workspace. Transcript files are ignored by Git.
+- `.agents/chats/` - local chat transcript workspace. Transcript files are ignored by Git.
 - `working/` - temporary scratch space ignored by Git.
 - `build/` - build artifacts ignored by Git when a project needs them.
 
@@ -24,7 +24,7 @@ AI assistants and humans should start with the root files:
 
 Agents should read `AGENTS.md`, `MEMORY.md`, `TODO.md`, `status.yaml`, and relevant files in `docs/` before starting work. For automated or recurring work, follow `AGENT_WORKFLOW.md`.
 
-Runtime logs and full chat transcripts should not be committed. Store local transcripts under `agents/chats/` when useful, and mirror agent-managed logs or transcripts to external storage such as:
+Runtime logs and full chat transcripts should not be committed. Store local transcripts under `.agents/chats/` when useful, and mirror agent-managed logs or transcripts to external storage such as:
 
 - `/var/log/hermes`
 - `/mnt/hermes/logs`

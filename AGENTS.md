@@ -110,7 +110,8 @@ Automated agents should return to `active`, `blocked`, `error`, or `stopped` bef
     Chat-Template.md      # Template for local or external chat transcripts
     Decisions.md          # Optional decision log when more detail is useful
     Research.md           # Optional research notes and references
-    chats/                # Local transcript workspace; transcript files ignored
+
+  .agents/chats/          # Local transcript workspace; transcript files ignored
 
   src/                    # Project source, when applicable
   build/                  # Build artifacts; ignored by Git
@@ -119,7 +120,7 @@ Automated agents should return to `active`, `blocked`, `error`, or `stopped` bef
 
 ## Chat Logs And External Agent Logs
 
-Chat transcript files are useful for context but should not be committed by default. Keep temporary transcripts under `agents/chats/` if needed; Git ignores Markdown files in that folder while keeping the folder placeholder.
+Chat transcript files are useful for context but should not be committed by default. Keep temporary transcripts under `.agents/chats/` if needed; Git ignores Markdown files in that folder while keeping the folder placeholder.
 
 Agent workflow managers should copy or mirror full transcripts and runtime logs to their own storage. Hermes-compatible defaults are:
 

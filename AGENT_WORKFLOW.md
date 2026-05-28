@@ -44,7 +44,7 @@ Use this loop for scheduled or autonomous agents.
 
 ## Chat Logs
 
-Full transcripts are not committed. Temporary local transcripts may be written under `agents/chats/`, but Markdown transcript files there are ignored by Git.
+Full transcripts are not committed. Temporary local transcripts may be written under `.agents/chats/`, but Markdown transcript files there are ignored by Git.
 
 Workflow managers should copy transcripts and runtime logs to external storage. Hermes-compatible defaults:
 

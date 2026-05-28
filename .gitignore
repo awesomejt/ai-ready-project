@@ -10,10 +10,8 @@
 *.log
 
 ## Ignore generated agent chat transcripts
-/agents/chats/*.md
-!/agents/chats/.gitkeep
-/chats/*.md
-!/chats/.gitkeep
+/.agents/chats/*.md
+!/.agents/chats/.gitkeep
 
 ## Ignore temporary files
 *.tmp
